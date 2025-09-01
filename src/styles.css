@@ -1,0 +1,119 @@
+:root {
+  --bg: #f7f7fb;
+  --card: #fff;
+  --muted: #666;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Inter, system-ui, Arial, -apple-system, "Segoe UI", Roboto;
+  padding: 0;
+  margin: 0;
+  background: var(--bg);
+  color: #111;
+}
+.app-root {
+  min-height: 100vh;
+}
+.nav {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.nav a {
+  color: #0b5cff;
+  text-decoration: none;
+}
+.link-btn {
+  background: none;
+  border: none;
+  color: #0b5cff;
+  cursor: pointer;
+}
+.container {
+  max-width: 780px;
+  margin: 28px auto;
+  padding: 20px;
+  background: var(--card);
+  box-shadow: 0 6px 18px rgba(15, 15, 15, 0.06);
+  border-radius: 8px;
+}
+.auth-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.auth-box {
+  padding: 12px;
+  border-radius: 6px;
+  background: #fafafb;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form input,
+.form textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+.form button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #0b5cff;
+  color: #fff;
+  cursor: pointer;
+}
+.msg {
+  color: var(--muted);
+  margin-top: 8px;
+}
+.note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.note-form input,
+.note-form textarea {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.note {
+  padding: 12px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #eee;
+}
+.note-actions {
+  margin-top: 8px;
+}
+.note-actions button {
+  background: #ff5c5c;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .container {
+    margin: 12px;
+    padding: 12px;
+  }
+}
