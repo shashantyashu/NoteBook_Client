@@ -20,8 +20,11 @@ const App: React.FC = () => {
     <div className="app-root">
       <main className="main">
         <Routes>
-          {/* Public route - always accessible */}
-          <Route path="/" element={<Home />} />
+          {/* Home is only accessible if logged in */}
+          <Route
+            path="/"
+            element={token ? <Home /> : <Navigate to="/login" replace />}
+          />
 
           {/* Signup & Login are only accessible if NOT logged in */}
           <Route
@@ -48,4 +51,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
