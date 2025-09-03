@@ -1,6 +1,9 @@
+
+
 import React, { useEffect } from "react";
 import api from "../api";
 import { setToken } from "../utils/auth";
+import { useNavigate } from "react-router-dom";
 
 declare global {
   interface Window {
@@ -9,6 +12,8 @@ declare global {
 }
 
 const GoogleSignIn: React.FC = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
     if (!clientId) {
@@ -34,20 +39,14 @@ const GoogleSignIn: React.FC = () => {
       const { token } = res.data;
       setToken(token);
       window.location.href = "/dashboard";
+      navigate("/dashboard"); // ✅ redirect
     } catch (err: any) {
       alert(err?.response?.data?.message || "Google sign-in failed");
     }
   };
 
-  return (
-    <div>
-      <div id="gsi-button"></div>
-      <p style={{ marginTop: 8 }}>
-        If the Google button is not visible, make sure you set{" "}
-        <code>VITE_GOOGLE_CLIENT_ID</code> in .env.
-      </p>
-    </div>
-  );
+  return <div id="gsi-button"></div>;
 };
 
 export default GoogleSignIn;
+

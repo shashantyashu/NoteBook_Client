@@ -1,11 +1,18 @@
-export const TOKEN_KEY = "notes_app_token";
 
-export function setToken(token: string) {
-  localStorage.setItem(TOKEN_KEY, token);
-}
-export function getToken(): string | null {
-  return localStorage.getItem(TOKEN_KEY);
-}
-export function logout() {
-  localStorage.removeItem(TOKEN_KEY);
-}
+// src/utils/auth.ts
+export const getToken = (): string | null => {
+  return localStorage.getItem("authToken") || sessionStorage.getItem("authToken");
+};
+
+export const setToken = (token: string, persist: boolean = true) => {
+  if (persist) {
+    localStorage.setItem("authToken", token);
+  } else {
+    sessionStorage.setItem("authToken", token);
+  }
+};
+
+export const logout = () => {
+  localStorage.removeItem("authToken");
+  sessionStorage.removeItem("authToken");
+};
