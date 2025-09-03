@@ -16,8 +16,6 @@ const App: React.FC = () => {
     return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
-  console.log("Current token:", token);
-
   return (
     <div className="app-root">
       <main className="main">

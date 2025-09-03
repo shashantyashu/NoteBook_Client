@@ -20,7 +20,7 @@ const Login: React.FC = () => {
     }
     try {
       setLoading(true);
-      await axios.post("http://localhost:4000/api/auth/send-otp", { email });
+      await axios.post("https://notebook-server-r23s.onrender.com/api/auth/send-otp", { email });
       alert("OTP sent to your email!");
       setStep("otp");
     } catch (err) {
@@ -39,7 +39,7 @@ const Login: React.FC = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:4000/api/auth/verify-otp",
+        "https://notebook-server-r23s.onrender.com/api/auth/verify-otp",
         {
           email,
           otp,
